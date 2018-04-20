@@ -5,7 +5,10 @@ include /Users/artikus/theos/makefiles/common.mk
 TOOL_NAME = freeze
 freeze_FILES = main.mm
 
+freeze_CODESIGN ?= ldid
+freeze_CODESIGN_FLAGS ?= -S/Users/artikus/entitlements.xml
+
 include $(THEOS_MAKE_PATH)/tool.mk
 
 after-install::
-	install.exec "chmod 4755 /usr/bin/freeze"
+	install.exec "chown root /usr/bin/freeze; chmod 6755 /usr/bin/freeze"
