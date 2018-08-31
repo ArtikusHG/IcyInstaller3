@@ -157,7 +157,7 @@ NSUInteger oldTweaks;
     if(alertView == respringAlert && buttonIndex != [alertView cancelButtonIndex]) {
         pid_t pid;
         int status;
-        const char *argv[] = {"killall", "-9", "SpringBoard", NULL};
+        const char *argv[] = {"killall", "-9", "backboardd", NULL};
         posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char**)argv, NULL);
         waitpid(pid, &status, 0);
     }
